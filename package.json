@@ -1,0 +1,9 @@
+{
+  "name": "wikipedia-viewer",
+  "version": "1.0",
+  "author": "Diego Dominguez",
+  "dependencies": {
+    "jquery": "^2.2.4",
+    "materialize-css": "^0.99.0"
+  }
+}
