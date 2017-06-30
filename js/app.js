@@ -57,7 +57,6 @@ $(document).ready(function() {
   }
 
   function getThumb(title, pageid) {
-    var url = ""
     $.getJSON(api_search, {
       format: "json",
       action: "query",
