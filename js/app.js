@@ -1,13 +1,10 @@
-var wiki_base_url = "https://en.wikipedia.org/wiki/";
 var api_search = "https://en.wikipedia.org/w/api.php?callback=?";
-var api_get_thumb = "https://en.wikipedia.org/w/api.php?format=json&action=query&prop=pageimages&pithumbsize=100&titles=";
-var pageid_temp ="";
 
 $(document).ready(function() {
-  $('#search').keypress(function (e) {
+  $('#search').keypress(function (event) {
     if (event.keyCode === 10 || event.keyCode === 13) {
       event.preventDefault();
-      var text = this.value;
+      var text = $('#search').val();
       getPages(text);
     }
   });
@@ -28,7 +25,7 @@ $(document).ready(function() {
       exlimit: 20,
       timeOut: 500
     })
-    .success(function(response) {
+    .done(function(response) {
       $('#results').html('');
       if (response.hasOwnProperty("query")) {
         response.query.pages.forEach(function(element) {
@@ -39,7 +36,7 @@ $(document).ready(function() {
       }
 
     })
-    .error(function(response){
+    .fail(function(response){
       console.log("Error ...");
     });
   }
@@ -65,10 +62,7 @@ $(document).ready(function() {
       titles: title,
       timeOut: 500
     },
-    passPageId(pageid),
-    function(response){
-      console.log("Error no responso images ..")
-    });
+    passPageId(pageid))
   }
 
   function passPageId(pageid) {
