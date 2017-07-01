@@ -74,7 +74,6 @@ $(document).ready(function() {
         return "";
       }
       $('#' + pageid).attr('src', data.query.pages[pageid]["thumbnail"]["source"]);
-      return data.query.pages[pageid]["thumbnail"]["source"];
     }
   }
 });
